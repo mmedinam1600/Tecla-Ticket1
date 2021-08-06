@@ -1,0 +1,39 @@
+.login-card {
+    margin-top: 20vh;
+}
+
+body {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+    background-color: rgb(252, 216, 212);
+    background-image: url('../img/background-login.jpg'), linear-gradient(164deg, rgba(252, 216, 212, 1) 0%, rgba(245, 198, 170, 1) 47%, rgba(253, 246, 240, 1) 100%);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#budgets td, #budgets th {
+    text-align: center;
+}
+
+.disabled {
+    cursor: not-allowed;
+}
+
+/* https://colorhunt.co/palette/fcd8d4fdf6f0f8e2cff5c6aa */
+.bg-beige {
+    background: rgb(249, 249, 249);
+    background: linear-gradient(90deg, rgba(249, 249, 249, 0.8) 0%, rgba(253, 246, 240, 0.8) 47%, rgba(249, 249, 249, 0.8) 100%);
+}
+
+.bg-beige-notransparent {
+    background: rgb(249, 249, 249);
+    background: linear-gradient(90deg, rgba(249, 249, 249, 0.93) 0%, rgba(253, 246, 240, 0.93) 47%, rgba(249, 249, 249, 0.93) 100%);
+}
+
+@media only screen and (max-height: 680px) {
+    .login-card {
+        margin-top: 3vh !important;
+        margin-bottom: 3vh !important;
+    }
+}

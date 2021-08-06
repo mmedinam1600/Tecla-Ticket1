@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ticket 1 - Login</title>
+  <meta name="description" content="Login"/>
+  <meta name="robots" content="index, follow"/>
+  <meta name="author" content="Miguel Medina"/>
+  <link rel="icon" type="image/png" href="favicon.ico">
+  <!-- Meta for social cards https://ogp.me/
+  <meta property="og:title" content="A Basic HTML5 Template">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.sitepoint.com/a-basic-html5-template/">
+  <meta property="og:description" content="A simple HTML5 Template for new projects.">
+  <meta property="og:image" content="image.png">
+  -->
+  <!-- <link rel="icon" href="/favicon.svg" type="image/svg+xml"> -->
+  <!-- <link rel="apple-touch-icon" href="/apple-touch-icon.png"> -->
+  <link rel="stylesheet" href="assets/dist/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="assets/css/custom.css">
+  <script src="assets/js/config.js"></script>
+</head>
+<body>
+
+<header>
+  <nav class="navbar navbar-light bg-beige shadow">
+    <div class="container-fluid">
+      <a class="navbar-brand" type="default" target="_self" href="index.html" rel="noopener noreferrer">Ticket 1</a>
+      <div class="navbar-text">
+        <span>¿No tienes una cuenta?</span>
+        <a href="register.html" type="default" target="_self" rel="noopener noreferrer">Registrate</a>
+      </div>
+    </div>
+  </nav>
+</header>
+
+<main>
+  <div class="col d-flex justify-content-center login-card">
+    <form class="border p-4 rounded-top bg-beige-notransparent shadow">
+      <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label">Correo electrónico</label>
+        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+        <div id="emailHelp" class="form-text">Nunca compartimos tu email con nadie más.</div>
+      </div>
+      <div class="mb-3">
+        <label for="exampleInputPassword1" class="form-label">Contraseña</label>
+        <input type="password" class="form-control" id="exampleInputPassword1">
+      </div>
+      <div class="form-check form-switch mb-3">
+        <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
+        <label class="form-check-label" for="flexSwitchCheckDefault">Mantener sesión iniciada</label>
+      </div>
+      <div class="col text-center">
+        <button type="submit" class="btn btn-primary">Iniciar Sesión</button>
+      </div>
+    </form>
+  </div>
+</main>
+
+<footer id="footerLogin">
+</footer>
+
+
+<script src="assets/dist/bootstrap/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

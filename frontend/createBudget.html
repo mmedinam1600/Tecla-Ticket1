@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ticket 1 - Crear Presupuesto</title>
+  <meta name="description" content="Página para crear un presupuesto"/>
+  <meta name="robots" content="index, follow"/>
+  <meta name="author" content="Miguel Medina"/>
+  <link rel="icon" type="image/png" href="favicon.ico">
+  <!-- Meta for social cards https://ogp.me/
+  <meta property="og:title" content="A Basic HTML5 Template">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.sitepoint.com/a-basic-html5-template/">
+  <meta property="og:description" content="A simple HTML5 Template for new projects.">
+  <meta property="og:image" content="image.png">
+  -->
+  <!-- <link rel="icon" href="/favicon.svg" type="image/svg+xml"> -->
+  <!-- <link rel="apple-touch-icon" href="/apple-touch-icon.png"> -->
+  <link rel="stylesheet" href="assets/dist/animatecss/animate.min.css">
+  <link rel="stylesheet" href="assets/dist/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="assets/dist/bootstrapselect/css/bootstrap-select.min.css">
+  <link rel="stylesheet" href="assets/dist/fontawesome/css/all.css">
+  <link rel="stylesheet" href="assets/dist/sweetalert/sweetalert2.min.css">
+  <link rel="stylesheet" href="assets/css/custom.css">
+  <script src="assets/js/config.js"></script>
+</head>
+<body>
+<header id="headerMain"></header> <!-- Cargado desde js/partitials -->
+
+<main class="container bg-light py-5">
+
+  <!-- RESUMEN FUNANCIERO -->
+  <div id="resumen-financiero" class="container">
+    <h5 style="text-align:center">Resumen financiero</h5>
+    <table class="table table-bordered table-striped table-responsive">
+      <thead>
+      <tr>
+        <th scope="col">Ventas</th>
+        <th scope="col">Costos</th>
+        <th scope="col">Margen</th>
+        <th scope="col">%</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+        <td>$<span>0.00</span></td> <!-- Ventas -->
+        <td>$<span>0.00</span></td> <!-- Costos -->
+        <td class="table-danger">$<span>0.00</span></td> <!-- Margen (negativos en rojo) -->
+        <td><span>0</span>%</td> <!-- % -->
+      </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- FLUJO DE EFECTIVO -->
+  <div id="flujo-efectivo" class="container">
+    <h5 style="text-align:center">Flujo de efectivo</h5>
+    <button type="button" class="btn btn-success mb-2" data-bs-target="#modalAgregarColumna" data-bs-toggle="modal"
+            data-bs-dismiss="modal"><i class="fas fa-plus-circle pe-2"></i>Agregar columna
+    </button>
+    <button type="button" class="btn btn-secondary mb-2 borrarColumna disabled"><i class="fas fa-times-circle pe-2"></i>Eliminar
+      columna
+    </button>
+    <table class="table table-bordered table-striped table-responsive">
+      <tbody class="table_FE">
+      <tr class="table_number_FE">
+        <th scope="col"></th>
+        <th scope="col">Sumatoria</th>
+      </tr>
+      <tr>
+        <th scope="col">Ingresos</th>
+        <td>$<span>0.00</span></td>
+      </tr>
+      <tr>
+        <th scope="col">Egresos</th>
+        <td>$<span>0.00</span></td>
+      </tr>
+      <tr>
+        <th scope="col">Total</th>
+        <td class="table-danger">$<span>0.00</span></td>
+      </tr>
+      <tr>
+        <th scope="col">Acumulado</th>
+        <td>$<span>0.00</span></td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- ESTADO DE RESULTADOS -->
+  <div id="estado-resultados" class="container">
+    <h5 style="text-align:center">Estado de resultados</h5>
+    <table class="table table-bordered table-striped table-responsive">
+      <tbody class="table_ER">
+      <tr class="table_number_ER">
+        <th></th>
+        <th>Sumatoria</th>
+      </tr>
+      <tr>
+        <th scope="col">Ventas</th>
+        <td>$<span>0.00</span></td>
+      </tr>
+      <tr>
+        <th scope="col">Costos</th>
+        <td>$<span>0.00</span></td>
+      </tr>
+      <tr>
+        <th scope="col">Margen</th>
+        <td class="table-danger">$<span>0.00</span></td>
+      </tr>
+      <tr>
+        <th scope="col">Saldo Final</th>
+        <td>$<span>0.00</span></td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- INGRESOS -->
+  <div id="ingresos" class="container">
+    <h5 style="text-align:center">Ingresos</h5>
+    <button type="button" class="btn btn-success mb-2" data-bs-target="#modalAgregarFila" data-bs-toggle="modal"
+            data-bs-dismiss="modal" data-whatever="table_I"><i class="fas fa-plus-circle pe-2"></i>Agregar fila
+    </button>
+    <table class="table table-bordered table-striped table-responsive">
+      <tbody id="tableExample" class="table_I">
+      <tr class="table_number_I">
+        <th scope="col">Concepto</th>
+        <th scope="col">Sumatoria</th>
+      </tr>
+      <tr>
+        <th>Total</th>
+        <td>$<span>0.00</span></td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- COSTOS DIRECTOS -->
+  <div id="costos-directos" class="container">
+    <h5 style="text-align:center">Costos directos</h5>
+    <button type="button" class="btn btn-success mb-2" data-bs-target="#modalAgregarFila" data-bs-toggle="modal"
+            data-bs-dismiss="modal" data-whatever="table_CD"><i class="fas fa-plus-circle pe-2"></i>Agregar fila
+    </button>
+
+    <table class="table table-bordered table-striped table-responsive">
+      <tbody class="table_CD">
+      <tr class="table_number_CD">
+        <th scope="col">Concepto</th>
+        <th scope="col">Sumatoria</th>
+      </tr>
+      <tr>
+        <th>Total</th>
+        <td>$<span>0.00</span></td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- COSTOS ADMINISTRATIVOS -->
+  <div id="costos-administrativos" class="container">
+    <h5 style="text-align:center">Costos administrativos</h5>
+    <button type="button" class="btn btn-success mb-2" data-bs-target="#modalAgregarFila" data-bs-toggle="modal"
+            data-bs-dismiss="modal" data-whatever="table_CA"><i class="fas fa-plus-circle pe-2"></i>Agregar fila
+    </button>
+
+    <table class="table table-bordered table-striped table-responsive">
+      <tbody class="table_CA">
+      <tr class="table_number_CA">
+        <th scope="col">Concepto</th>
+        <th scope="col">Sumatoria</th>
+      </tr>
+      <tr>
+        <th>Total</th>
+        <td>$<span>0.00</span></td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- RECURSOS -->
+  <div id="recursos" class="container">
+    <h5 style="text-align:center">Recursos (% de asignación)</h5>
+    <button type="button" class="btn btn-success mb-2" data-bs-target="#modalAgregarFila" data-bs-toggle="modal"
+            data-bs-dismiss="modal" data-whatever="table_R"><i class="fas fa-plus-circle pe-2"></i>Agregar fila
+    </button>
+
+    <table class="table table-bordered table-striped table-responsive">
+      <tbody class="table_R">
+      <tr class="table_number_R">
+        <th scope="col">Recursos</th>
+        <th scope="col">Costo mensual</th>
+        <th scope="col">Sumatoria</th>
+      </tr>
+      <tr>
+        <th>Total</th>
+        <td>$<span>0.00</span></td>
+        <td>$<span>0.00</span></td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- COSTOS -->
+  <div id="costos" class="container">
+    <h5 style="text-align:center">Costos</h5>
+
+    <table class="table table-bordered table-striped table-responsive">
+      <tbody class="table_C">
+      <tr class="table_number_C">
+        <th scope="col">Recursos</th>
+        <th scope="col">Sumatoria</th>
+      </tr>
+      <tr>
+        <th>Total</th>
+        <td>$<span>0.00</span></td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- RESUMEN COSTOS RECURSOS -->
+  <div id="resumen-costos-recursos" class="container">
+    <h5 style="text-align:center">Resumen Costos Recursos</h5>
+
+    <table class="table table-bordered table-striped table-responsive">
+      <tbody class="table_RCR">
+      <tr class="table_number_RCR">
+        <th scope="col">Concepto</th>
+        <th scope="col">Sumatoria</th>
+      </tr>
+      <tr>
+        <th>Total</th>
+        <td>$<span>0.00</span></td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+
+
+</main>
+
+<!-- MODAL AGREGAR COLUMNA -->
+<div class="modal animate__animated animate__bounceInRight animate__faster" id="modalAgregarColumna"
+     data-bs-backdrop="static" data-bs-keyboard="false" aria-hidden="true" aria-labelledby="modalLabelAgregarColumna"
+     tabindex="-1">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="modalLabelAgregarColumna">Crear columna</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <p>Selecciona el mes</p>
+        <select id="selectMonth" class="selectpicker show-tick" data-live-search="true" data-style="btn-primary"
+                data-width="auto" data-size="5" title="Selecciona un mes">
+          <option data-tokens="enero, january" value="enero">enero</option>
+          <option data-tokens="febrero, february" value="febrero">febrero</option>
+          <option data-tokens="marzo, march" value="marzo">marzo</option>
+          <option data-tokens="abril, april" value="abril">abril</option>
+          <option data-tokens="mayo, may" value="mayo">mayo</option>
+          <option data-tokens="junio, june" value="junio">junio</option>
+          <option data-tokens="julio, jule" value="julio">julio</option>
+          <option data-tokens="agosto, august" value="agosto">agosto</option>
+          <option data-tokens="septiembre, september" value="septiembre">septiembre</option>
+          <option data-tokens="octubre, october" value="octubre">octubre</option>
+          <option data-tokens="noviembre, november" value="noviembre">noviembre</option>
+          <option data-tokens="diciembre, december" value="diciembre">diciembre</option>
+        </select>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button>
+        <button class="btn btn-success crearColumna" data-bs-dismiss="modal">Crear</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- MODAL AGREGAR FILA -->
+<div class="modal animate__animated animate__bounceInRight animate__faster" id="modalAgregarFila"
+     data-bs-backdrop="static" data-bs-keyboard="false" aria-hidden="true" aria-labelledby="modalLabelAgregarFila"
+     tabindex="-1">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="modalLabelAgregarFila">Crear fila</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <p>Escribe un concepto</p>
+        <input id="concept" type="text" class="form-control reset"/>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button>
+        <button class="btn btn-success crearFila" data-bs-dismiss="modal">Crear</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="mt-auto" id="footerMain"></footer> <!-- Cargado desde js/partitials -->
+
+<script src="assets/dist/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="assets/dist/jquery/jquery-3.6.0.min.js"></script>
+<script src="assets/dist/bootstrapselect/js/bootstrap-select.min.js"></script>
+<script src="assets/dist/sweetalert/sweetalert2.min.js"></script>
+<script type="module" src="assets/js/partitials.js"></script>
+<script src="assets/js/index.js"></script>
+</body>
+</html>

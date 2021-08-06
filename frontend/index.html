@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ticket 1 - Index</title>
+  <meta name="description" content="Index"/>
+  <meta name="robots" content="index, follow"/>
+  <meta name="author" content="Miguel Medina">
+  <link rel="icon" type="image/png" href="favicon.ico">
+  <!-- Meta for social cards https://ogp.me/
+  <meta property="og:title" content="A Basic HTML5 Template">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.sitepoint.com/a-basic-html5-template/">
+  <meta property="og:description" content="A simple HTML5 Template for new projects.">
+  <meta property="og:image" content="image.png">
+  -->
+  <!-- <link rel="icon" href="/favicon.svg" type="image/svg+xml"> -->
+  <!-- <link rel="apple-touch-icon" href="/apple-touch-icon.png"> -->
+  <link rel="stylesheet" href="assets/dist/animatecss/animate.min.css">
+  <link rel="stylesheet" href="assets/dist/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="assets/dist/bootstrapselect/css/bootstrap-select.min.css">
+  <link rel="stylesheet" href="assets/dist/fontawesome/css/all.css">
+  <link rel="stylesheet" href="assets/dist/sweetalert/sweetalert2.min.css">
+  <link rel="stylesheet" href="assets/css/custom.css">
+  <script src="assets/js/config.js"></script>
+</head>
+<body>
+<header id="headerMain"></header> <!-- Cargado desde js/partitials -->
+
+<section class="container my-3 table-responsive bg-beige-notransparent rounded">
+  <div class="row my-2">
+    <div class="col-6">
+      <h2>Lista de presupuestos</h2>
+    </div>
+    <div class="col-6">
+      <button type="button" class="btn btn-success float-end" data-bs-toggle="modal" data-bs-target="#modalCrearPresupuesto"><i class="fas fa-plus-circle pe-2"></i>Nuevo Presupuesto</button>
+    </div>
+  </div>
+  <table class="table table-striped table-light table-hover table-sm caption-top" id="budgets">
+    <thead>
+    <tr>
+      <th scope="col"><i class="fas fa-list-ol px-2"></i>Id Presupuesto</th>
+      <th scope="col"><i class="fas fa-clock px-2"></i>Fecha Creación</th>
+      <th scope="col"><i class="fas fa-project-diagram px-2"></i>Proyecto</th>
+      <th scope="col"><i class="fas fa-code-branch px-2"></i>Versiones</th>
+      <th scope="col"><i class="fas fa-exclamation-circle px-2"></i>Acciones</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr class="table-primary">
+      <th scope="row">1</th>
+      <td>Hoy</td>
+      <td>Tecla</td>
+      <td>1.12.2</td>
+      <td>
+        <a href="#"><abbr title="Editar Presupuesto" style="cursor: pointer"><i class="fas fa-pen-square"></i></abbr></a>
+        <a href="#"><abbr title="Eliminar Presupuesto" style="cursor: pointer"><i class="fas fa-times-circle" style="color: red;"></i></abbr></a>
+        <a href="#"><abbr title="Enviar Presupuesto" style="cursor: pointer"><i class="fas fa-paper-plane" style="color: green;"></i></abbr></a>
+      </td>
+    </tr>
+    <tr>
+      <th scope="row">1</th>
+      <td>Hoy</td>
+      <td>Tecla</td>
+      <td>1.12.2</td>
+      <td>
+        <a href="#"><abbr title="Editar Presupuesto" style="cursor: pointer"><i class="fas fa-pen-square"></i></abbr></a>
+        <a href="#"><abbr title="Eliminar Presupuesto" style="cursor: pointer"><i class="fas fa-times-circle" style="color: red;"></i></abbr></a>
+        <a href="#"><abbr title="Enviar Presupuesto" style="cursor: pointer"><i class="fas fa-paper-plane" style="color: green;"></i></abbr></a>
+      </td>
+    </tr>
+    <tr>
+      <th scope="row">1</th>
+      <td>Hoy</td>
+      <td>Tecla</td>
+      <td>1.12.2</td>
+      <td>
+        <a href="#"><abbr title="Editar Presupuesto" style="cursor: pointer"><i class="fas fa-pen-square"></i></abbr></a>
+        <a href="#"><abbr title="Eliminar Presupuesto" style="cursor: pointer"><i class="fas fa-times-circle" style="color: red;"></i></abbr></a>
+        <a href="#"><abbr title="Enviar Presupuesto" style="cursor: pointer"><i class="fas fa-paper-plane" style="color: green;"></i></abbr></a>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</section>
+
+<footer class="mt-auto" id="footerMain"></footer> <!-- Cargado desde js/partitials -->
+
+<script src="assets/dist/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="assets/dist/jquery/jquery-3.6.0.min.js"></script>
+<script src="assets/dist/bootstrapselect/js/bootstrap-select.min.js"></script>
+<script src="assets/dist/sweetalert/sweetalert2.min.js"></script>
+<script type="module" src="assets/js/partitials.js"></script>
+<script src="assets/js/index.js"></script>
+</body>
+</html>
