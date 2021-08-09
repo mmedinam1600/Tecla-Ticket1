@@ -204,15 +204,6 @@ buttonCreateRow.addEventListener('click', () => {
   const concept = document.getElementById('concept').value;
   table.createRow('I', concept);
   document.getElementById('concept').value = "";
-  /*
-  for (let i = 0; i < 10; i++) {
-    let tr = document.createElement('tr');
-    const row = `
-    <td>Hola ${i}</td>
-    <td>Hola ${i}</td>`
-    tr.innerHTML = row;
-    document.getElementById('tableExample').prepend(tr);
-  }*/
 });
 
 $('#modalAgregarFila').on('hidden.bs.modal', function (event) {
@@ -223,13 +214,13 @@ $('#modalAgregarFila').on('hidden.bs.modal', function (event) {
 });
 
 $('#modalAgregarFila').on('show.bs.modal', function (event) {
-  var button = $(event.relatedTarget) // Button that triggered the modal
-  var recipient = button.data('whatever') // Extract info from data-* attributes
+  const button = $(event.relatedTarget); // Button that triggered the modal
+  const recipient = button.data('whatever'); // Extract info from data-* attributes
   // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
   // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
-  var modal = $(this)
-  modal.find('.modal-title').text('New message to ' + recipient)
-  modal.find('.modal-body input').val(recipient)
+  const modal = $(this);
+  modal.find('.modal-title').text('Concepto nuevo:');
+  modal.find('.modal-body input#modalTableName').val(recipient);
 })
 
 // GLOBAL EVENT

@@ -121,7 +121,7 @@
   <div id="ingresos" class="container">
     <h5 style="text-align:center">Ingresos</h5>
     <button type="button" class="btn btn-success mb-2" data-bs-target="#modalAgregarFila" data-bs-toggle="modal"
-            data-bs-dismiss="modal" data-whatever="table_I"><i class="fas fa-plus-circle pe-2"></i>Agregar fila
+            data-bs-dismiss="modal" data-whatever="I"><i class="fas fa-plus-circle pe-2"></i>Agregar fila
     </button>
     <table class="table table-bordered table-striped table-responsive">
       <tbody id="tableExample" class="table_I">
@@ -141,7 +141,7 @@
   <div id="costos-directos" class="container">
     <h5 style="text-align:center">Costos directos</h5>
     <button type="button" class="btn btn-success mb-2" data-bs-target="#modalAgregarFila" data-bs-toggle="modal"
-            data-bs-dismiss="modal" data-whatever="table_CD"><i class="fas fa-plus-circle pe-2"></i>Agregar fila
+            data-bs-dismiss="modal" data-whatever="CD"><i class="fas fa-plus-circle pe-2"></i>Agregar fila
     </button>
 
     <table class="table table-bordered table-striped table-responsive">
@@ -162,7 +162,7 @@
   <div id="costos-administrativos" class="container">
     <h5 style="text-align:center">Costos administrativos</h5>
     <button type="button" class="btn btn-success mb-2" data-bs-target="#modalAgregarFila" data-bs-toggle="modal"
-            data-bs-dismiss="modal" data-whatever="table_CA"><i class="fas fa-plus-circle pe-2"></i>Agregar fila
+            data-bs-dismiss="modal" data-whatever="CA"><i class="fas fa-plus-circle pe-2"></i>Agregar fila
     </button>
 
     <table class="table table-bordered table-striped table-responsive">
@@ -183,7 +183,7 @@
   <div id="recursos" class="container">
     <h5 style="text-align:center">Recursos (% de asignación)</h5>
     <button type="button" class="btn btn-success mb-2" data-bs-target="#modalAgregarFila" data-bs-toggle="modal"
-            data-bs-dismiss="modal" data-whatever="table_R"><i class="fas fa-plus-circle pe-2"></i>Agregar fila
+            data-bs-dismiss="modal" data-whatever="R"><i class="fas fa-plus-circle pe-2"></i>Agregar fila
     </button>
 
     <table class="table table-bordered table-striped table-responsive">
@@ -290,6 +290,7 @@
       <div class="modal-body">
         <p>Escribe un concepto</p>
         <input id="concept" type="text" class="form-control reset"/>
+        <input type="text" hidden id="modalTableName">
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button>
