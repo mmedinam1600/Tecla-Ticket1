@@ -38,6 +38,16 @@ const defineModel = () => {
   });
 }
 
+class BudgetUsers {
+  async createBudgetUsers(user_id, budget_id) {
+    return DB.sequelize.models.BudgetsUsers.create({
+      user_id: user_id,
+      budget_id: budget_id,
+    });
+  }
+}
+
 module.exports = {
-  defineModel
+  defineModel,
+  BudgetUsers
 }

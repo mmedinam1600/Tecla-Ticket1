@@ -40,8 +40,13 @@ const defineModel = () => {
   });
 }
 
-
+class Resources {
+  createResources(resources_list) {
+    return DB.sequelize.models.Resources.bulkCreate(resources_list);
+  }
+}
 
 module.exports = {
-  defineModel
+  defineModel,
+  Resources
 }

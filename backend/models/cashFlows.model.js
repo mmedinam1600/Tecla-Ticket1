@@ -36,7 +36,14 @@ const defineModel = () => {
   });
 }
 
+class CashFlow {
+
+  async createCashFlow(cashFlow_list) {
+    return DB.sequelize.models.CashFlows.bulkCreate(cashFlow_list);
+  }
+}
 
 module.exports = {
-  defineModel
+  defineModel,
+  CashFlow
 }

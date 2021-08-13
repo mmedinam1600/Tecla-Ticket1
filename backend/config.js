@@ -36,5 +36,6 @@ module.exports = {
   },
   expressSession: {
     secret: process.env.SESSION_SECRET
-  }
+  },
+  jwtSeed: process.env.JWT_SEED,
 }

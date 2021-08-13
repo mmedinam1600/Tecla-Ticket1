@@ -21,6 +21,8 @@
     "express-session": "^1.17.2",
     "express-validator": "^6.12.1",
     "helmet": "^4.6.0",
+    "joi": "^17.4.2",
+    "jsonwebtoken": "^8.5.1",
     "morgan": "^1.10.0",
     "sequelize": "^6.6.5",
     "tedious": "^11.4.0",

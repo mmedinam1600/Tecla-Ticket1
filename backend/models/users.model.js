@@ -34,6 +34,18 @@ const defineModel = () => {
 }
 
 
+const checkIfExistsUser = async (email) => {
+  const user = await DB.sequelize.models.Users.findOne({ where: { email: email } });
+  console.log(user);
+  return false;
+}
+
+const findUserByEmail = async (email) => {
+  return DB.sequelize.models.Users.findOne({ where: { email: email }});
+}
+
+
 module.exports = {
-  defineModel
+  defineModel,
+  findUserByEmail
 }

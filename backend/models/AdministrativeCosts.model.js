@@ -35,8 +35,14 @@ const defineModel = () => {
   });
 }
 
+class AdministrativeCosts {
+  async createAdministrativeCosts (administrative_costs) {
+    return DB.sequelize.models.AdministrativeCosts.bulkCreate(administrative_costs);
+  }
+}
 
 
 module.exports = {
-  defineModel
+  defineModel,
+  AdministrativeCosts
 }

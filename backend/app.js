@@ -25,7 +25,8 @@ app.use(session({
 }));
 
 //CAMPOS DE SEGURIDAD
-app.use(express.json({ limit: '1000kb' })); //El peso máximo de el json es de 1000kb
+app.use(express.json({ parameterLimit: '1000kb'}));
+app.use(express.json({ limit: '1000kb'})); //El peso máximo de el json es de 1000kb
 app.use(bodyParser.json({ parameterLimit: '1000' })); //Limitamos el número de parámetros en una petición.
 app.use(ratelimit({
   windowMs: config.ratelimit.maxTime * 10 * 1000, //20 minutos permitidos
@@ -37,9 +38,9 @@ app.use(helmet());
 app.set('port', config.app.port || 3000);
 
 //ROUTES
-const accounts = require("./routes/accounts.js");
+const users = require("./routes/users.js");
 const budgets = require("./routes/budgets.js");
-app.use('/accounts', accounts);
+app.use('/users', users);
 app.use('/budgets', budgets);
 
 //ERROR HANDLERS

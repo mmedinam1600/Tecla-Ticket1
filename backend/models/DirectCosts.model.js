@@ -35,7 +35,14 @@ const defineModel = () => {
   });
 }
 
+class DirectCosts {
+  createDirectCosts(directCosts_list) {
+    return DB.sequelize.models.DirectCosts.bulkCreate(directCosts_list);
+  }
+}
+
 
 module.exports = {
-  defineModel
+  defineModel,
+  DirectCosts
 }

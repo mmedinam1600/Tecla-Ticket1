@@ -35,7 +35,14 @@ const defineModel = () => {
   });
 }
 
+class Revenues {
+  createRevenues(revenues_list) {
+    return DB.sequelize.models.Revenues.bulkCreate(revenues_list);
+  }
+}
+
 
 module.exports = {
-  defineModel
+  defineModel,
+  Revenues
 }
