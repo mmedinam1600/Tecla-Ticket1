@@ -38,4 +38,7 @@ module.exports = {
     secret: process.env.SESSION_SECRET
   },
   jwtSeed: process.env.JWT_SEED,
+  cors: {
+    whiteList: process.env.LISTA_BLANCA
+  }
 }

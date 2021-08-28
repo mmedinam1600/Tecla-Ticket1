@@ -33,19 +33,60 @@ const defineModel = () => {
   });
 }
 
+class User {
 
-const checkIfExistsUser = async (email) => {
-  const user = await DB.sequelize.models.Users.findOne({ where: { email: email } });
-  console.log(user);
-  return false;
-}
+  excludeAttributes = {
+    exclude: [
+      'updatedAt',
+      'createdAt',
+      'active'
+    ]
+  };
 
-const findUserByEmail = async (email) => {
-  return DB.sequelize.models.Users.findOne({ where: { email: email }});
+
+  findUserByEmail = async (email) => DB.sequelize.models.Users.findOne({
+    where: {
+      email: email,
+      active: true
+    },
+    attributes: this.excludeAttributes
+  }).catch((err) => { throw new Error(`Error buscar un usuario por su Email: ${err.message}`) });
+
+  findUserById = async (id) => DB.sequelize.models.Users.findOne({
+    where: {
+      user_id: id,
+      active: true
+    },
+    attributes: {
+      exclude: [
+        'updatedAt',
+        'createdAt',
+        'password',
+        'active'
+      ]
+    }
+  })
+
+  findAllUsers = async () => DB.sequelize.models.Users.findAll({
+    where: {
+      active: true
+    },
+    attributes: {
+      exclude: [
+        'updatedAt',
+        'createdAt',
+        'password',
+        'active'
+      ]
+    }
+  }).catch((err) => { throw new Error(`Error al buscar todos los usuarios: ${err.message}`) })
+
+
+
 }
 
 
 module.exports = {
   defineModel,
-  findUserByEmail
+  User
 }

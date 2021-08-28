@@ -20,8 +20,8 @@ headerMainTemplate.innerHTML = `
   <div class="container-fluid">
     <a class="navbar-brand" type="default" target="_self" href="../../../index.html" rel="noopener noreferrer">Ticket 1</a>
     <div class="navbar-text">
-      <span>¿No tienes una cuenta?</span>
-      <a href="../../../register.html" type="default" target="_self" rel="noopener noreferrer">Registrate</a>
+      <span id="texto">¿No tienes una cuenta?</span>
+      <a href="javascript:CerrarSesion();" onclick="" type="default" target="_self" rel="noopener noreferrer">Cerrar Sesión</a>
     </div>
   </div>
 `;

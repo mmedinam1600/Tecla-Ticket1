@@ -7,6 +7,12 @@ class UserDTO {
   });
 
   session = Joi.string().required();
+
+  getId = Joi.object().keys({
+    id: Joi.string().required(),
+  });
+
+
 }
 
 module.exports = {

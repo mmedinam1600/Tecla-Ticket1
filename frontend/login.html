@@ -37,22 +37,22 @@
 
 <main>
   <div class="col d-flex justify-content-center login-card">
-    <form class="border p-4 rounded-top bg-beige-notransparent shadow">
+    <form class="border p-4 rounded-top bg-beige-notransparent shadow" onsubmit="return validateForm(event)">
       <div class="mb-3">
-        <label for="exampleInputEmail1" class="form-label">Correo electrónico</label>
-        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+        <label for="email" class="form-label">Correo electrónico</label>
+        <input type="email" class="form-control" id="email" aria-describedby="emailHelp" required>
         <div id="emailHelp" class="form-text">Nunca compartimos tu email con nadie más.</div>
       </div>
       <div class="mb-3">
-        <label for="exampleInputPassword1" class="form-label">Contraseña</label>
-        <input type="password" class="form-control" id="exampleInputPassword1">
+        <label for="password" class="form-label">Contraseña</label>
+        <input type="password" class="form-control" id="password" required>
       </div>
       <div class="form-check form-switch mb-3">
         <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
         <label class="form-check-label" for="flexSwitchCheckDefault">Mantener sesión iniciada</label>
       </div>
       <div class="col text-center">
-        <button type="submit" class="btn btn-primary">Iniciar Sesión</button>
+        <button type="submit" class="btn btn-primary" id="logIn">Iniciar Sesión</button>
       </div>
     </form>
   </div>
@@ -63,5 +63,6 @@
 
 
 <script src="assets/dist/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="assets/js/login.js"></script>
 </body>
 </html>

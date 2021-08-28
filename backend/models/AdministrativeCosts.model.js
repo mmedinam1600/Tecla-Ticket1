@@ -39,6 +39,10 @@ class AdministrativeCosts {
   async createAdministrativeCosts (administrative_costs) {
     return DB.sequelize.models.AdministrativeCosts.bulkCreate(administrative_costs);
   }
+
+  async editAdministrativeCosts (administrative_costs, id) {
+    return true
+  }
 }
 
 

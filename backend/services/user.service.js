@@ -1,39 +1,58 @@
-const { findUserByEmail } = require('../models/users.model');
+const {User} = require('../models/users.model');
 
 const bcrypt = require('bcrypt');
-const { v5: uuidv5 } = require('uuid');
+const {v5: uuidv5} = require('uuid');
 const jwtService = require('./jwt.service');
 const config = require('../config');
 
-const checkIfCredentialsAreValid = async (user) => {
-  const fetchUser = await findUserByEmail(user.email);
-  if(fetchUser){ //Si encuentra el usuario por su email, validamos que sea correcta su contraseña
-    const passwordHash = fetchUser.password;
-    const isValid = bcrypt.compareSync(config.bcrypt.secretSalt + user.password, passwordHash);
-    if(!isValid){
-      return false;
+const user = new User();
+
+class UserService {
+
+    checkIfCredentialsAreValid = async (email, password) => {
+        const fetchUser = await user.findUserByEmail(email);
+        return (fetchUser) ? bcrypt.compareSync(config.bcrypt.secretSalt + password, fetchUser.password) : false;
     }
-    return true;
-  }
-}
+
+    getUserByEmail = async (email) => {
+        try {
+            const fetchUser = await user.findUserByEmail(email);
+            return (fetchUser) ? {
+                    id: fetchUser.user_id,
+                    nickname: fetchUser.nickname,
+                    email: fetchUser.email
+                } :
+                {
+                    error: 'Usuario no encontrado'
+                }
+        } catch (e) {
+            throw new Error(e);
+        }
+    }
+
+    getUserById = async (id) => {
+        try {
+            const fetchUser = await user.findUserById(id);
+            return (fetchUser) ? {
+                    id: fetchUser.user_id,
+                    nickname: fetchUser.nickname,
+                    email: fetchUser.email
+                } :
+                {
+                    error: 'Usuario no encontrado'
+                }
+        } catch (e) {
+            throw new Error(e);
+        }
+    }
+
+    getAllUsers = () => user.findAllUsers()
+        .catch( (err) => { throw new Error(err); });
 
 
 
-const getUserByEmail = async (email) => {
-  try {
-    const fetchUser = await findUserByEmail(email);
-    return {
-      id: fetchUser.user_id,
-      nickname: fetchUser.nickname,
-      email: fetchUser.email,
-      password: fetchUser.password
-    };
-  } catch (e) {
-    throw new Error(e);
-  }
 }
 
 module.exports = {
-  checkIfCredentialsAreValid,
-  getUserByEmail
+    UserService
 }

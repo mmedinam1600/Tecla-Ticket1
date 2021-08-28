@@ -1,24 +1,20 @@
 const jwt = require('jsonwebtoken');
 const config = require('../config');
 
-const generateJWT = async (payload) => {
-  try {
-    delete payload.password;
-    return jwt.sign({ data: payload }, config.jwtSeed, { expiresIn: '30d' });
-  } catch (e) {
-    throw new Error('Error al generar Token: ' + error);
-  }
-}
 
-const validateToken = (token) => {
-  try {
-    return jwt.verify(token, config.jwtSeed);
-  } catch (e) {
-    throw new Error(e);
+class JwtService {
+  generateJWT = async (payload) => {
+    try {
+      delete payload.password;
+      return jwt.sign({ data: payload }, config.jwtSeed, { expiresIn: '30d' });
+    } catch (e) {
+      throw new Error('Error al generar Token: ' + e.message);
+    }
   }
+
+  validateToken = (token) => jwt.verify(token, config.jwtSeed);
 }
 
 module.exports = {
-  generateJWT,
-  validateToken
+  JwtService
 }

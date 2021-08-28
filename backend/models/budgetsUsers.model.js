@@ -45,6 +45,17 @@ class BudgetUsers {
       budget_id: budget_id,
     });
   }
+
+  async editBudgetUsers(user_id, budget_id) {
+    return DB.sequelize.models.BudgetsUsers.update({
+      user_id: user_id,
+      budget_id: budget_id,
+    }, {
+      where: {
+        budget_id: budget_id,
+      }
+    });
+  }
 }
 
 module.exports = {
