@@ -3,7 +3,7 @@ const chaiHttp = require('chai-http');
 const expect = require('chai').expect;
 
 chai.use(chaiHttp);
-const url = 'http://localhost:3000/user';
+const url = 'http://localhost:3000';
 
 
 describe("Rutas de autentificacion test usando EXPECT interface desde CHAI module ", function() {
@@ -23,6 +23,7 @@ describe("Rutas de autentificacion test usando EXPECT interface desde CHAI modul
             });
     });
 
+    //Marcará error por que no le mando el token en los headers
     it("Devuelve el estado de la sesión de un token", (done) => {
         chai.request(url)
             .get("/checkSession")

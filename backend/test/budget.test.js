@@ -3,9 +3,10 @@ const chaiHttp = require('chai-http');
 const expect = require('chai').expect;
 
 chai.use(chaiHttp);
-const url = 'http://localhost:3000/user';
+const url = 'http://localhost:3000';
 
 
+//CORS No autoriza la petición, pero si funciona
 describe("Rutas de presupuestos test usando EXPECT interface desde CHAI module ", function() {
     it("Devuelve la información del  presupuesto creado", (done) => {
         chai.request(url)

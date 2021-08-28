@@ -3,8 +3,9 @@ const chaiHttp = require('chai-http');
 const expect = require('chai').expect;
 
 chai.use(chaiHttp);
-const url = 'http://localhost:3000/user';
+const url = 'http://localhost:3000';
 
+//CORS No autoriza la petición, pero si funciona
 describe("Rutas de usuario test usando EXPECT interface desde CHAI module ", function() {
     it("Devuelve todos los usuarios registrados en la base de datos", (done) => {
         chai.request(url)
